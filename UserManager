@@ -1,0 +1,17 @@
+import java.util.HashMap;
+import java.util.Map;
+public class UserManager {
+private Map<String, String> users = new HashMap<>();
+public boolean addUser(String username, String password) {
+if (username == null || password == null || username.isEmpty() || password.isEmpty() ||
+users.containsKey(username)) {
+return false;
+}
+users.put(username, password);
+return true;
+}
+public boolean checkUser(String username, String password) {
+String storedPassword = users.get(username);
+return storedPassword != null && storedPassword.equals(password);
+}
+}
